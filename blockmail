@@ -1,0 +1,7 @@
+#!/bin/bash
+(sudo pfctl -sr 2>/dev/null; echo "
+block quick proto tcp from any to any port 110
+block quick proto tcp from any to any port 143
+block quick proto tcp from any to any port 993
+block quick proto tcp from any to any port 995") | sudo pfctl -f - 2>/dev/null
+
